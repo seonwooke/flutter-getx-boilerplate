@@ -1,0 +1,67 @@
+name: gather_prayers_admin
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.4 <4.0.0'
+
+dependencies:
+  # init
+  flutter:
+    sdk: flutter
+
+  # Firebase
+  firebase_auth: ^5.3.1
+  firebase_core: ^3.6.0
+  firebase_storage: ^12.3.3
+  cloud_firestore: ^5.4.4
+
+  # Local Storage
+  shared_preferences: ^2.3.2
+  
+  # App
+  freezed_annotation: ^2.4.4
+  get: ^4.6.6
+  go_router: ^14.3.0
+  intl: ^0.19.0
+  json_annotation: ^4.9.0
+  image_picker: ^1.1.2
+
+dev_dependencies:
+  # init
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+  # App
+  build_runner: ^2.4.11
+  go_router_builder: ^2.7.1
+  freezed: ^2.5.2
+  json_serializable: ^6.8.0
+  flutter_gen_runner: ^5.8.0
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/images/
+  - assets/icons/
+  - assets/json/
+  fonts:
+  - family: Pretendard
+    fonts:
+    - asset: assets/fonts/Pretendard-Medium.otf
+      weight: 500
+    - asset: assets/fonts/Pretendard-Bold.otf
+      weight: 700
+    - asset: assets/fonts/Pretendard-Black.otf
+      weight: 900
+
+scripts:
+  install: rps get
+  run: flutter run
+  gen: 
+    run: dart run build_runner build --delete-conflicting-outputs
+    r: rps gen run
+  svg_image_minify: npx svgo assets/images/*.svg
+  svg_icon_minify: npx svgo assets/icons/*.svg
