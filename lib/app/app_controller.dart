@@ -10,4 +10,11 @@ class AppController extends GetxController {
   bool appLoadCompleted() => authLoaded.value = true;
 
   final userModel = ''.obs;
+
+  @override
+  Future<void> onInit() async {
+    super.onInit();
+
+    appLoadCompleted();
+  }
 }
